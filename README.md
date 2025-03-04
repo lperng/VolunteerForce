@@ -72,3 +72,5 @@ VolunteerForce represents a transformative approach to volunteer management that
 perfectly with the goals of the TDX 2025 Agentforce Hackathon. By leveraging Salesforce's powerful
 platform and AI capabilities, we're creating a solution that will help nonprofits maximize their
 impact through more eﬀective volunteer engagement.
+
+![image](https://github.com/user-attachments/assets/1c41faff-a299-4dd6-a350-4529a7c81253)
