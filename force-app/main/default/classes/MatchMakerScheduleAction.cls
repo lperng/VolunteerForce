@@ -2,16 +2,18 @@ public class MatchMakerScheduleAction {
     @InvocableMethod(label='Schedule Assignment' 
                      description='Schedules a volunteer for a project'
                      category='AgentForce - MatchMaker')
-    public static List<ScheduleResponseResult> scheduleAssignment(List<ScheduleRequest> requests) {
-        List<ScheduleResponseResult> responses = new List<ScheduleResponseResult>();
+    public static List<JsonResult> scheduleAssignment(List<ScheduleRequest> requests) {
+        List<JsonResult> results = new List<JsonResult>();
         
         for (ScheduleRequest request : requests) {
-            ScheduleResponseResult result = new ScheduleResponseResult();
-            result.response = MatchMakerService.scheduleAssignment(request.volunteerId, request.projectId);
-            responses.add(result);
+            MatchMakerService.ScheduleResponse response = MatchMakerService.scheduleAssignment(request.volunteerId, request.projectId);
+            
+            JsonResult result = new JsonResult();
+            result.jsonResponse = JSON.serialize(response);
+            results.add(result);
         }
         
-        return responses;
+        return results;
     }
     
     public class ScheduleRequest {
@@ -22,8 +24,8 @@ public class MatchMakerScheduleAction {
         public String projectId;
     }
     
-    public class ScheduleResponseResult {
+    public class JsonResult {
         @InvocableVariable(required=true)
-        public MatchMakerService.ScheduleResponse response;
+        public String jsonResponse;
     }
-} 
+}

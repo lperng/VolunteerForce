@@ -2,12 +2,14 @@ public class RetentionGuardReengagementAction {
     @InvocableMethod(label='Suggest Reengagement Strategies' 
                      description='Suggests personalized reengagement strategies for a volunteer'
                      category='AgentForce - RetentionGuard')
-    public static List<ReengagementResult> suggestReengagementStrategies(List<ReengagementRequest> requests) {
-        List<ReengagementResult> results = new List<ReengagementResult>();
+    public static List<JsonResult> suggestReengagementStrategies(List<ReengagementRequest> requests) {
+        List<JsonResult> results = new List<JsonResult>();
         
         for (ReengagementRequest request : requests) {
-            ReengagementResult result = new ReengagementResult();
-            result.reengagementResponse = RetentionGuardService.suggestReengagementStrategies(request.volunteerId, request.riskLevel);
+            RetentionGuardService.ReengagementResponse response = RetentionGuardService.suggestReengagementStrategies(request.volunteerId, request.riskLevel);
+            
+            JsonResult result = new JsonResult();
+            result.jsonResponse = JSON.serialize(response);
             results.add(result);
         }
         
@@ -22,8 +24,8 @@ public class RetentionGuardReengagementAction {
         public String riskLevel;
     }
     
-    public class ReengagementResult {
+    public class JsonResult {
         @InvocableVariable(required=true)
-        public RetentionGuardService.ReengagementResponse reengagementResponse;
+        public String jsonResponse;
     }
 }

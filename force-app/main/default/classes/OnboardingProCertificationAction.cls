@@ -2,20 +2,22 @@ public class OnboardingProCertificationAction {
     @InvocableMethod(label='Verify Certifications' 
                      description='Verifies volunteer certifications and identifies expiring ones'
                      category='AgentForce - OnboardingPro')
-    public static List<CertificationResult> verifyCertifications(List<String> volunteerIds) {
-        List<CertificationResult> results = new List<CertificationResult>();
+    public static List<JsonResult> verifyCertifications(List<String> volunteerIds) {
+        List<JsonResult> results = new List<JsonResult>();
         
         for (String volunteerId : volunteerIds) {
-            CertificationResult result = new CertificationResult();
-            result.certificationResponse = OnboardingProService.verifyCertifications(volunteerId);
+            OnboardingProService.CertificationResponse certResponse = OnboardingProService.verifyCertifications(volunteerId);
+            
+            JsonResult result = new JsonResult();
+            result.jsonResponse = JSON.serialize(certResponse);
             results.add(result);
         }
         
         return results;
     }
     
-    public class CertificationResult {
+    public class JsonResult {
         @InvocableVariable(required=true)
-        public OnboardingProService.CertificationResponse certificationResponse;
+        public String jsonResponse;
     }
 }

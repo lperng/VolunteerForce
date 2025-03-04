@@ -28,8 +28,6 @@ public class MatchMakerService {
         @AuraEnabled public MatchScores matchScore { get; set; }
     }
     
-    @InvocableMethod(label='Find Project Matches' 
-                     description='Finds best matching projects for a specific volunteer')
     public static List<ProjectMatchesResult> findMatches(List<FindMatchesRequest> requests) {
         List<ProjectMatchesResult> responses = new List<ProjectMatchesResult>();
         

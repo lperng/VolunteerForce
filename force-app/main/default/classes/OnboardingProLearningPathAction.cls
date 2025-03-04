@@ -2,9 +2,9 @@ public class OnboardingProLearningPathAction {
     @InvocableMethod(label='Generate Learning Path' 
                      description='Generates a personalized learning path for a volunteer based on their role'
                      category='AgentForce - OnboardingPro')
-    public static List<LearningPathResult> generateLearningPath(List<OnboardingProRequest> requests) {
+    public static List<JsonResult> generateLearningPath(List<OnboardingProRequest> requests) {
         List<OnboardingProService.GenerateLearningPathRequest> serviceRequests = new List<OnboardingProService.GenerateLearningPathRequest>();
-        List<LearningPathResult> results = new List<LearningPathResult>();
+        List<JsonResult> results = new List<JsonResult>();
         
         for (OnboardingProRequest request : requests) {
             OnboardingProService.GenerateLearningPathRequest serviceRequest = new OnboardingProService.GenerateLearningPathRequest();
@@ -15,10 +15,10 @@ public class OnboardingProLearningPathAction {
         
         List<OnboardingProService.LearningPathResponse> responses = OnboardingProService.generateLearningPath(serviceRequests);
         
-        // Convert service responses to invocable results
+        // Convert service responses to JSON strings
         for (OnboardingProService.LearningPathResponse response : responses) {
-            LearningPathResult result = new LearningPathResult();
-            result.learningPathResponse = response;
+            JsonResult result = new JsonResult();
+            result.jsonResponse = JSON.serialize(response);
             results.add(result);
         }
         
@@ -33,8 +33,8 @@ public class OnboardingProLearningPathAction {
         public String roleId;
     }
     
-    public class LearningPathResult {
+    public class JsonResult {
         @InvocableVariable(required=true)
-        public OnboardingProService.LearningPathResponse learningPathResponse;
+        public String jsonResponse;
     }
 }
