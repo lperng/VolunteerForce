@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Engagement_Metrics__c</fullName>
+    <label>Engagement Metrics</label>
+    <length>32768</length>
+    <type>LongTextArea</type>
+    <visibleLines>5</visibleLines>
+    <description>JSON object of engagement metrics used for the assessment</description>
+    <inlineHelpText>Engagement metrics used for this burnout assessment. Stored in JSON format.</inlineHelpText>
+</CustomField>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Match_Score__c</fullName>
+    <label>Match Score</label>
+    <precision>5</precision>
+    <scale>2</scale>
+    <type>Number</type>
+    <description>Match score calculated for this volunteer-project pairing</description>
+    <inlineHelpText>Score indicating how well this volunteer matches this project (0-100)</inlineHelpText>
+</CustomField>

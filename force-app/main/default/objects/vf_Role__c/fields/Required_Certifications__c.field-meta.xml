@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Required_Certifications__c</fullName>
+    <label>Required Certifications</label>
+    <length>32768</length>
+    <type>LongTextArea</type>
+    <visibleLines>5</visibleLines>
+    <description>JSON array of certifications required for the role</description>
+    <inlineHelpText>List of certifications required for the role. Stored in JSON format.</inlineHelpText>
+</CustomField>

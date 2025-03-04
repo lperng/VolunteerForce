@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Certification_Type__c</fullName>
+    <label>Certification Type</label>
+    <length>255</length>
+    <type>Text</type>
+    <description>Type or name of the certification</description>
+    <inlineHelpText>The type or name of this certification</inlineHelpText>
+</CustomField>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Hours__c</fullName>
+    <label>Hours</label>
+    <precision>8</precision>
+    <scale>2</scale>
+    <type>Number</type>
+    <description>Number of hours spent on the activity</description>
+    <inlineHelpText>The number of hours spent on this activity</inlineHelpText>
+</CustomField>

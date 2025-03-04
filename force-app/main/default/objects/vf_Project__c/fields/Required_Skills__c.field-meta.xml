@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Required_Skills__c</fullName>
+    <label>Required Skills</label>
+    <length>32768</length>
+    <type>LongTextArea</type>
+    <visibleLines>5</visibleLines>
+    <description>JSON array of skills required for the project</description>
+    <inlineHelpText>List of skills required for the project. Stored in JSON format.</inlineHelpText>
+</CustomField>

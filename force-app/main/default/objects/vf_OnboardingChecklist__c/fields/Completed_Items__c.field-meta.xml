@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Completed_Items__c</fullName>
+    <label>Completed Items</label>
+    <precision>10</precision>
+    <scale>0</scale>
+    <type>Number</type>
+    <description>Number of completed items in the checklist</description>
+    <inlineHelpText>The number of completed items in this onboarding checklist</inlineHelpText>
+</CustomField>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Start_Date__c</fullName>
+    <label>Start Date</label>
+    <type>Date</type>
+    <description>Start date of the volunteer's assignment</description>
+    <inlineHelpText>Date when the volunteer started on this assignment</inlineHelpText>
+</CustomField>

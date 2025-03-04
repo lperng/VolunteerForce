@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Learning_Preferences__c</fullName>
+    <label>Learning Preferences</label>
+    <length>32768</length>
+    <type>LongTextArea</type>
+    <visibleLines>5</visibleLines>
+    <description>JSON structure of volunteer learning preferences</description>
+    <inlineHelpText>Volunteer's preferred learning styles and methods. Stored in JSON format.</inlineHelpText>
+</CustomField>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Role__c</fullName>
+    <label>Role</label>
+    <referenceTo>vf_Role__c</referenceTo>
+    <relationshipLabel>Project Roles</relationshipLabel>
+    <relationshipName>ProjectRoles</relationshipName>
+    <relationshipOrder>1</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    <description>Role required for this project</description>
+    <inlineHelpText>The role required for this project</inlineHelpText>
+</CustomField>

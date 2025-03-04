@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Training_Module__c</fullName>
+    <label>Training Module</label>
+    <referenceTo>vf_TrainingModule__c</referenceTo>
+    <relationshipLabel>Training Records</relationshipLabel>
+    <relationshipName>Training_Records</relationshipName>
+    <type>Lookup</type>
+    <description>Training module being completed</description>
+    <inlineHelpText>The training module that this record tracks completion for</inlineHelpText>
+</CustomField>

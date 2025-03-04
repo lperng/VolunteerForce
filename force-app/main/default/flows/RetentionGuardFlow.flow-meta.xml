@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>58.0</apiVersion>
+    <description>Flow to manage volunteer retention using RetentionGuard agent</description>
+    <label>RetentionGuard Flow</label>
+    <interviewLabel>RetentionGuard Flow {!$Flow.CurrentDateTime}</interviewLabel>
+    <status>Active</status>
+    
+    <!-- Input Variables -->
+    <variables>
+        <name>volunteerId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    
+    <!-- Output Variables -->
+    <variables>
+        <name>burnoutRisk</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+        <objectType>RetentionGuardService.BurnoutRiskResponse</objectType>
+    </variables>
+    <variables>
+        <name>achievements</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+        <objectType>RetentionGuardService.AchievementsResponse</objectType>
+    </variables>
+    <variables>
+        <name>reengagementStrategies</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+        <objectType>RetentionGuardService.ReengagementResponse</objectType>
+    </variables>
+    
+    <!-- Predict Burnout Risk -->
+    <actionCalls>
+        <name>predictBurnoutRisk</name>
+        <label>Predict Burnout Risk</label>
+        <locationX>176</locationX>
+        <locationY>288</locationY>
+        <actionName>RetentionGuardAction.predictBurnoutRisk</actionName>
+        <actionType>apex</actionType>
+        <inputParameters>
+            <name>volunteerIds</name>
+            <value>
+                <elementReference>volunteerId</elementReference>
+            </value>
+        </inputParameters>
+        <outputParameters>
+            <assignToReference>burnoutRisk</assignToReference>
+            <name>output</name>
+        </outputParameters>
+    </actionCalls>
+    
+    <!-- Decision: Check Burnout Risk -->
+    <decisions>
+        <name>checkBurnoutRisk</name>
+        <label>Check Burnout Risk</label>
+        <locationX>176</locationX>
+        <locationY>388</locationY>
+        <defaultConnector>
+            <targetReference>identifyAchievements</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Low Risk</defaultConnectorLabel>
+        <rules>
+            <name>highBurnoutRisk</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>burnoutRisk.riskProbability</leftValueReference>
+                <operator>GreaterThan</operator>
+                <rightValue>
+                    <numberValue>0.7</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>suggestReengagement</targetReference>
+            </connector>
+            <label>High Risk</label>
+        </rules>
+    </decisions>
+    
+    <!-- Identify Achievements -->
+    <actionCalls>
+        <name>identifyAchievements</name>
+        <label>Identify Achievements</label>
+        <locationX>176</locationX>
+        <locationY>488</locationY>
+        <actionName>RetentionGuardAction.identifyAchievements</actionName>
+        <actionType>apex</actionType>
+        <inputParameters>
+            <name>volunteerIds</name>
+            <value>
+                <elementReference>volunteerId</elementReference>
+            </value>
+        </inputParameters>
+        <outputParameters>
+            <assignToReference>achievements</assignToReference>
+            <name>output</name>
+        </outputParameters>
+    </actionCalls>
+    
+    <!-- Suggest Reengagement Strategies -->
+    <actionCalls>
+        <name>suggestReengagement</name>
+        <label>Suggest Reengagement Strategies</label>
+        <locationX>376</locationX>
+        <locationY>388</locationY>
+        <actionName>RetentionGuardAction.suggestReengagementStrategies</actionName>
+        <actionType>apex</actionType>
+        <inputParameters>
+            <name>requests</name>
+            <value>
+                <elementReference>reengagementRequest</elementReference>
+            </value>
+        </inputParameters>
+        <outputParameters>
+            <assignToReference>reengagementStrategies</assignToReference>
+            <name>output</name>
+        </outputParameters>
+    </actionCalls>
+    
+    <!-- Screen Flow: Display Results -->
+    <screens>
+        <name>displayResults</name>
+        <label>Display Results</label>
+        <locationX>176</locationX>
+        <locationY>588</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <fields>
+            <name>riskMessage</name>
+            <fieldText>Burnout Risk Level: {!burnoutRisk.riskLevel}
+Risk Probability: {!burnoutRisk.riskProbability}%</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>achievementsMessage</name>
+            <fieldText>Recent Achievements: {!achievements.achievements.size}</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+    </screens>
+    
+    <start>
+        <locationX>50</locationX>
+        <locationY>50</locationY>
+        <connector>
+            <targetReference>predictBurnoutRisk</targetReference>
+        </connector>
+    </start>
+</Flow> 

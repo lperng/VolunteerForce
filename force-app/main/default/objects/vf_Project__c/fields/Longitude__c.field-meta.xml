@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Longitude__c</fullName>
+    <label>Longitude</label>
+    <precision>18</precision>
+    <scale>15</scale>
+    <type>Number</type>
+    <description>Longitude coordinate of project location</description>
+    <inlineHelpText>Longitude coordinate of project location for geographical matching</inlineHelpText>
+</CustomField>

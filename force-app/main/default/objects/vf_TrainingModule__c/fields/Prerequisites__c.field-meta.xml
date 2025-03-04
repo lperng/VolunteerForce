@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Prerequisites__c</fullName>
+    <label>Prerequisites</label>
+    <length>32768</length>
+    <type>LongTextArea</type>
+    <visibleLines>5</visibleLines>
+    <description>JSON array of prerequisite modules</description>
+    <inlineHelpText>List of modules that should be completed before this one. Stored in JSON format.</inlineHelpText>
+</CustomField>

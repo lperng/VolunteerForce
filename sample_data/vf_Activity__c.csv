@@ -1,0 +1,12 @@
+Volunteer__c,Project__c,Date__c,Hours__c,Activity_Type__c,Description__c
+"John Doe","Habitat Build 2023","2023-06-17","8.0","Direct Service","Framing work on the east wall of house #3"
+"John Doe","Habitat Build 2023","2023-06-24","6.5","Direct Service","Installing windows and door frames on house #3"
+"Jane Smith","Tech Literacy Workshop","2023-03-17","2.0","Direct Service","Taught email basics to 5 seniors"
+"Jane Smith","Tech Literacy Workshop","2023-03-24","2.0","Direct Service","Led internet safety workshop for 8 participants"
+"Jane Smith","Tech Literacy Workshop","2023-03-16","1.5","Meeting","Planning session with other instructors"
+"Emily Chen","Community Garden Initiative","2023-04-11","3.0","Direct Service","Prepared garden beds and planted spring vegetables"
+"Emily Chen","Community Garden Initiative","2023-04-18","3.0","Direct Service","Installed irrigation system in new section"
+"Maria Garcia","ESL Conversation Partners","2023-02-13","2.0","Direct Service","Conversation practice with 3 ESL students"
+"Maria Garcia","ESL Conversation Partners","2023-02-20","2.0","Direct Service","Developed and led group conversation activity"
+"Robert Johnson","Financial Literacy Program","2023-05-18","2.5","Direct Service","Led budgeting workshop for 12 participants"
+"Robert Johnson","Financial Literacy Program","2023-05-25","3.0","Direct Service","Provided one-on-one financial coaching to 3 participants"

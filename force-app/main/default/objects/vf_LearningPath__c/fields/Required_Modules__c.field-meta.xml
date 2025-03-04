@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Required_Modules__c</fullName>
+    <label>Required Modules</label>
+    <precision>10</precision>
+    <scale>0</scale>
+    <type>Number</type>
+    <description>Number of required modules in the learning path</description>
+    <inlineHelpText>The number of required training modules in this learning path</inlineHelpText>
+</CustomField>

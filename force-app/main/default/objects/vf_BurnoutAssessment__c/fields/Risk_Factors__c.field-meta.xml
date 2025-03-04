@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Risk_Factors__c</fullName>
+    <label>Risk Factors</label>
+    <length>32768</length>
+    <type>LongTextArea</type>
+    <visibleLines>5</visibleLines>
+    <description>JSON array of identified burnout risk factors</description>
+    <inlineHelpText>List of identified burnout risk factors. Stored in JSON format.</inlineHelpText>
+</CustomField>

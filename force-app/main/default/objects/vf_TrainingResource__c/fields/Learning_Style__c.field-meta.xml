@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Learning_Style__c</fullName>
+    <label>Learning Style</label>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Visual</fullName>
+                <default>false</default>
+                <label>Visual</label>
+            </value>
+            <value>
+                <fullName>Auditory</fullName>
+                <default>false</default>
+                <label>Auditory</label>
+            </value>
+            <value>
+                <fullName>Reading/Writing</fullName>
+                <default>false</default>
+                <label>Reading/Writing</label>
+            </value>
+            <value>
+                <fullName>Kinesthetic</fullName>
+                <default>false</default>
+                <label>Kinesthetic</label>
+            </value>
+            <value>
+                <fullName>Multiple</fullName>
+                <default>true</default>
+                <label>Multiple</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <description>Learning style the resource is best for</description>
+    <inlineHelpText>The learning style this resource is best suited for</inlineHelpText>
+</CustomField>

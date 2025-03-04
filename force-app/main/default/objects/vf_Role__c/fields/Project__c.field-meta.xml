@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Project__c</fullName>
+    <label>Project</label>
+    <referenceTo>vf_Project__c</referenceTo>
+    <relationshipLabel>Roles</relationshipLabel>
+    <relationshipName>Roles</relationshipName>
+    <type>Lookup</type>
+    <description>Project this role is associated with</description>
+    <inlineHelpText>The project this role is defined for</inlineHelpText>
+</CustomField>

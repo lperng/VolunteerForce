@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>58.0</apiVersion>
+    <description>Flow to manage volunteer onboarding using OnboardingPro agent</description>
+    <label>OnboardingPro Flow</label>
+    <interviewLabel>OnboardingPro Flow {!$Flow.CurrentDateTime}</interviewLabel>
+    <status>Active</status>
+    
+    <!-- Input Variables -->
+    <variables>
+        <name>volunteerId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>roleId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    
+    <!-- Output Variables -->
+    <variables>
+        <name>learningPath</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+        <objectType>OnboardingProService.LearningPathResponse</objectType>
+    </variables>
+    <variables>
+        <name>certifications</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+        <objectType>OnboardingProService.CertificationResponse</objectType>
+    </variables>
+    
+    <!-- Generate Learning Path -->
+    <actionCalls>
+        <name>generateLearningPath</name>
+        <label>Generate Learning Path</label>
+        <locationX>176</locationX>
+        <locationY>288</locationY>
+        <actionName>OnboardingProAction.generateLearningPath</actionName>
+        <actionType>apex</actionType>
+        <inputParameters>
+            <name>requests</name>
+            <value>
+                <elementReference>learningPathRequest</elementReference>
+            </value>
+        </inputParameters>
+        <outputParameters>
+            <assignToReference>learningPath</assignToReference>
+            <name>output</name>
+        </outputParameters>
+    </actionCalls>
+    
+    <!-- Verify Certifications -->
+    <actionCalls>
+        <name>verifyCertifications</name>
+        <label>Verify Certifications</label>
+        <locationX>176</locationX>
+        <locationY>388</locationY>
+        <actionName>OnboardingProAction.verifyCertifications</actionName>
+        <actionType>apex</actionType>
+        <inputParameters>
+            <name>volunteerIds</name>
+            <value>
+                <elementReference>volunteerId</elementReference>
+            </value>
+        </inputParameters>
+        <outputParameters>
+            <assignToReference>certifications</assignToReference>
+            <name>output</name>
+        </outputParameters>
+    </actionCalls>
+    
+    <!-- Decision: Check Certification Status -->
+    <decisions>
+        <name>checkCertificationStatus</name>
+        <label>Check Certification Status</label>
+        <locationX>176</locationX>
+        <locationY>468</locationY>
+        <defaultConnector>
+            <targetReference>generateLearningPath</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default</defaultConnectorLabel>
+        <rules>
+            <name>hasExpiringCertifications</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>certifications.expiringCertifications</leftValueReference>
+                <operator>GreaterThan</operator>
+                <rightValue>
+                    <numberValue>0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>notifyExpiringCertifications</targetReference>
+            </connector>
+            <label>Has Expiring Certifications</label>
+        </rules>
+    </decisions>
+    
+    <!-- Screen Flow: Notify Expiring Certifications -->
+    <screens>
+        <name>notifyExpiringCertifications</name>
+        <label>Notify Expiring Certifications</label>
+        <locationX>176</locationX>
+        <locationY>568</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <fields>
+            <name>certificationMessage</name>
+            <fieldText>You have {!certifications.expiringCertifications} certification(s) expiring soon. Please review and renew them.</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+    </screens>
+    
+    <start>
+        <locationX>50</locationX>
+        <locationY>50</locationY>
+        <connector>
+            <targetReference>verifyCertifications</targetReference>
+        </connector>
+    </start>
+</Flow> 

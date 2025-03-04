@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Optional_Roles__c</fullName>
+    <label>Optional Roles</label>
+    <length>32768</length>
+    <type>LongTextArea</type>
+    <visibleLines>5</visibleLines>
+    <description>JSON array of roles that benefit from this module but don't require it</description>
+    <inlineHelpText>List of roles that benefit from but don't require this training module. Stored in JSON format.</inlineHelpText>
+</CustomField>

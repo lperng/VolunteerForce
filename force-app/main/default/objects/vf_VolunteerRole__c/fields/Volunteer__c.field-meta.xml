@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Volunteer__c</fullName>
+    <label>Volunteer</label>
+    <referenceTo>vf_Volunteer__c</referenceTo>
+    <relationshipLabel>Volunteer Roles</relationshipLabel>
+    <relationshipName>VolunteerRoles</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    <description>Volunteer assigned to the role</description>
+    <inlineHelpText>The volunteer assigned to this role</inlineHelpText>
+</CustomField>

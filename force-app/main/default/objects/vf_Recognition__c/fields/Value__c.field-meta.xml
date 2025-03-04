@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Value__c</fullName>
+    <label>Value</label>
+    <length>50</length>
+    <type>Text</type>
+    <description>Value or level of the recognition (e.g., Gold, Silver)</description>
+    <inlineHelpText>The value or level of this recognition (e.g., Gold, 5-Year, etc.)</inlineHelpText>
+</CustomField>

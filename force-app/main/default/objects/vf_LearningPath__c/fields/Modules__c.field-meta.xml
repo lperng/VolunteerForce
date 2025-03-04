@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Modules__c</fullName>
+    <label>Modules</label>
+    <length>32768</length>
+    <type>LongTextArea</type>
+    <visibleLines>5</visibleLines>
+    <description>JSON array of modules in the learning path</description>
+    <inlineHelpText>List of training modules in this learning path. Stored in JSON format.</inlineHelpText>
+</CustomField>

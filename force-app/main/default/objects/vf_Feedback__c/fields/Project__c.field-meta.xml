@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Project__c</fullName>
+    <label>Project</label>
+    <referenceTo>vf_Project__c</referenceTo>
+    <relationshipLabel>Feedback</relationshipLabel>
+    <relationshipName>Feedback</relationshipName>
+    <type>Lookup</type>
+    <description>Project the feedback is about</description>
+    <inlineHelpText>The project this feedback is related to</inlineHelpText>
+</CustomField>

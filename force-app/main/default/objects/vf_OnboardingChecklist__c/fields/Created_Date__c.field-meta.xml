@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Created_Date__c</fullName>
+    <label>Created Date</label>
+    <type>Date</type>
+    <description>Date the checklist was created</description>
+    <inlineHelpText>The date when this onboarding checklist was created</inlineHelpText>
+</CustomField>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Skill_Category__c</fullName>
+    <label>Skill Category</label>
+    <length>100</length>
+    <type>Text</type>
+    <description>Category of skill this module teaches</description>
+    <inlineHelpText>The category of skill this training module addresses</inlineHelpText>
+</CustomField>

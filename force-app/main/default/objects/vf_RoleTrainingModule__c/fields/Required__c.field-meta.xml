@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Required__c</fullName>
+    <defaultValue>true</defaultValue>
+    <label>Required</label>
+    <type>Checkbox</type>
+    <description>Indicates if the training module is required for the role</description>
+    <inlineHelpText>Check if this training module is required for the role (unchecked means optional)</inlineHelpText>
+</CustomField>

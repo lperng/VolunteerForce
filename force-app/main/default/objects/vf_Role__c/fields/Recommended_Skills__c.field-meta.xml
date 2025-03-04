@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Recommended_Skills__c</fullName>
+    <label>Recommended Skills</label>
+    <length>32768</length>
+    <type>LongTextArea</type>
+    <visibleLines>5</visibleLines>
+    <description>JSON array of recommended (but not required) skills for the role</description>
+    <inlineHelpText>List of recommended skills for the role. Stored in JSON format.</inlineHelpText>
+</CustomField>

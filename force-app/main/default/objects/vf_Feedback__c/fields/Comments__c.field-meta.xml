@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Comments__c</fullName>
+    <label>Comments</label>
+    <length>32768</length>
+    <type>LongTextArea</type>
+    <visibleLines>6</visibleLines>
+    <description>Volunteer comments and feedback</description>
+    <inlineHelpText>Detailed comments and feedback from the volunteer</inlineHelpText>
+</CustomField>
