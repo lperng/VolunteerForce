@@ -43,8 +43,6 @@ public class RetentionGuardService {
         @AuraEnabled public List<ReengagementStrategy> strategies { get; set; }
     }
     
-    @InvocableMethod(label='Predict Burnout Risk' 
-                     description='Assesses the burnout risk for a specific volunteer')
     public static List<BurnoutRiskResponse> predictBurnoutRisk(List<String> volunteerIds) {
         List<BurnoutRiskResponse> responses = new List<BurnoutRiskResponse>();
         

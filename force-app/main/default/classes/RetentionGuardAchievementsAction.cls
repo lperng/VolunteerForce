@@ -2,13 +2,20 @@ public class RetentionGuardAchievementsAction {
     @InvocableMethod(label='Identify Achievements' 
                      description='Identifies volunteer achievements eligible for recognition'
                      category='AgentForce - RetentionGuard')
-    public static List<RetentionGuardService.AchievementsResponse> identifyAchievements(List<String> volunteerIds) {
-        List<RetentionGuardService.AchievementsResponse> responses = new List<RetentionGuardService.AchievementsResponse>();
+    public static List<AchievementsResult> identifyAchievements(List<String> volunteerIds) {
+        List<AchievementsResult> results = new List<AchievementsResult>();
         
         for (String volunteerId : volunteerIds) {
-            responses.add(RetentionGuardService.identifyAchievements(volunteerId));
+            AchievementsResult result = new AchievementsResult();
+            result.achievementsResponse = RetentionGuardService.identifyAchievements(volunteerId);
+            results.add(result);
         }
         
-        return responses;
+        return results;
+    }
+    
+    public class AchievementsResult {
+        @InvocableVariable(required=true)
+        public RetentionGuardService.AchievementsResponse achievementsResponse;
     }
 }

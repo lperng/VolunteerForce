@@ -2,8 +2,9 @@ public class OnboardingProLearningPathAction {
     @InvocableMethod(label='Generate Learning Path' 
                      description='Generates a personalized learning path for a volunteer based on their role'
                      category='AgentForce - OnboardingPro')
-    public static List<OnboardingProService.LearningPathResponse> generateLearningPath(List<OnboardingProRequest> requests) {
+    public static List<LearningPathResult> generateLearningPath(List<OnboardingProRequest> requests) {
         List<OnboardingProService.GenerateLearningPathRequest> serviceRequests = new List<OnboardingProService.GenerateLearningPathRequest>();
+        List<LearningPathResult> results = new List<LearningPathResult>();
         
         for (OnboardingProRequest request : requests) {
             OnboardingProService.GenerateLearningPathRequest serviceRequest = new OnboardingProService.GenerateLearningPathRequest();
@@ -12,7 +13,16 @@ public class OnboardingProLearningPathAction {
             serviceRequests.add(serviceRequest);
         }
         
-        return OnboardingProService.generateLearningPath(serviceRequests);
+        List<OnboardingProService.LearningPathResponse> responses = OnboardingProService.generateLearningPath(serviceRequests);
+        
+        // Convert service responses to invocable results
+        for (OnboardingProService.LearningPathResponse response : responses) {
+            LearningPathResult result = new LearningPathResult();
+            result.learningPathResponse = response;
+            results.add(result);
+        }
+        
+        return results;
     }
     
     public class OnboardingProRequest {
@@ -21,5 +31,10 @@ public class OnboardingProLearningPathAction {
         
         @InvocableVariable(required=true label='Role ID' description='ID of the role')
         public String roleId;
+    }
+    
+    public class LearningPathResult {
+        @InvocableVariable(required=true)
+        public OnboardingProService.LearningPathResponse learningPathResponse;
     }
 }

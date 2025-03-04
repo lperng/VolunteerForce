@@ -2,14 +2,16 @@ public class OnboardingProResourcesAction {
     @InvocableMethod(label='Recommend Learning Resources' 
                      description='Recommends additional learning resources for a specific module'
                      category='AgentForce - OnboardingPro')
-    public static List<List<OnboardingProService.ResourceResponse>> recommendResources(List<ResourceRequest> requests) {
-        List<List<OnboardingProService.ResourceResponse>> responses = new List<List<OnboardingProService.ResourceResponse>>();
+    public static List<ResourcesResult> recommendResources(List<ResourceRequest> requests) {
+        List<ResourcesResult> results = new List<ResourcesResult>();
         
         for (ResourceRequest request : requests) {
-            responses.add(OnboardingProService.recommendResources(request.volunteerId, request.moduleId));
+            ResourcesResult result = new ResourcesResult();
+            result.resources = OnboardingProService.recommendResources(request.volunteerId, request.moduleId);
+            results.add(result);
         }
         
-        return responses;
+        return results;
     }
     
     public class ResourceRequest {
@@ -18,5 +20,10 @@ public class OnboardingProResourcesAction {
         
         @InvocableVariable(required=true label='Module ID' description='ID of the training module')
         public String moduleId;
+    }
+    
+    public class ResourcesResult {
+        @InvocableVariable(required=true)
+        public List<OnboardingProService.ResourceResponse> resources;
     }
 }

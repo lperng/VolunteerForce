@@ -2,14 +2,16 @@ public class RetentionGuardReengagementAction {
     @InvocableMethod(label='Suggest Reengagement Strategies' 
                      description='Suggests personalized reengagement strategies for a volunteer'
                      category='AgentForce - RetentionGuard')
-    public static List<RetentionGuardService.ReengagementResponse> suggestReengagementStrategies(List<ReengagementRequest> requests) {
-        List<RetentionGuardService.ReengagementResponse> responses = new List<RetentionGuardService.ReengagementResponse>();
+    public static List<ReengagementResult> suggestReengagementStrategies(List<ReengagementRequest> requests) {
+        List<ReengagementResult> results = new List<ReengagementResult>();
         
         for (ReengagementRequest request : requests) {
-            responses.add(RetentionGuardService.suggestReengagementStrategies(request.volunteerId, request.riskLevel));
+            ReengagementResult result = new ReengagementResult();
+            result.reengagementResponse = RetentionGuardService.suggestReengagementStrategies(request.volunteerId, request.riskLevel);
+            results.add(result);
         }
         
-        return responses;
+        return results;
     }
     
     public class ReengagementRequest {
@@ -18,5 +20,10 @@ public class RetentionGuardReengagementAction {
         
         @InvocableVariable(required=false label='Risk Level' description='Optional risk level for targeted strategies')
         public String riskLevel;
+    }
+    
+    public class ReengagementResult {
+        @InvocableVariable(required=true)
+        public RetentionGuardService.ReengagementResponse reengagementResponse;
     }
 }

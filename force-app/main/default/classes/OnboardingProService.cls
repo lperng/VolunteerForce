@@ -40,8 +40,6 @@ public class OnboardingProService {
         @AuraEnabled public List<String> expired { get; set; }
     }
     
-    @InvocableMethod(label='Generate Learning Path' 
-                     description='Generates a personalized learning path for a volunteer based on their role')
     public static List<LearningPathResponse> generateLearningPath(List<GenerateLearningPathRequest> requests) {
         List<LearningPathResponse> responses = new List<LearningPathResponse>();
         
